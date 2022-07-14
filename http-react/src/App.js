@@ -12,7 +12,7 @@ function App() {
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
 
-  const {data: items} = useFetch(url)
+  const {data: items, httpConfig} = useFetch(url)
 
   //add
   async function handleSubmit (e){
@@ -23,17 +23,18 @@ function App() {
       price
     }
 
-    const res = await fetch(url,{
-      method:"POST",
-      headers:{
-        "content-type": "application/json"
-      },
-      body: JSON.stringify(product)
-    })
+    // const res = await fetch(url,{
+    //   method:"POST",
+    //   headers:{
+    //     "content-type": "application/json"
+    //   },
+    //   body: JSON.stringify(product)
+    // })
     
-    // 3- carregamento dinamico
-    const addedProduct = await res.json()
-    setProducts((prevProducts) => [...prevProducts,addedProduct])
+    // // 3- carregamento dinamico
+    // const addedProduct = await res.json()
+    // setProducts((prevProducts) => [...prevProducts,addedProduct])
+    httpConfig(product, "POST")
 
     setName('')
     setPrice('')

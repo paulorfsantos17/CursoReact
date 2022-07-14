@@ -34,6 +34,11 @@
       "name": "Computador",
       "price": "1200,00",
       "id": 7
+    },
+    {
+      "name": "teste",
+      "price": "1",
+      "id": 8
     }
   ]
 }
