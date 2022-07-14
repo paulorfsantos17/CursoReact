@@ -46,7 +46,7 @@ export const useFetch = (url) => {
     }
 
     fetchData()
-  }, [url, ,callFetch])
+  }, [url, callFetch])
 
   useEffect(() => {
       const httpRequest = async() => {
