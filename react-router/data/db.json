@@ -1,0 +1,19 @@
+{
+  "products":[
+  { 
+    "id":1,
+    "name":"Computador",
+    "price": "1200"
+  },
+  { 
+    "id":2,
+    "name":"Cabo HDMI",
+    "price": "50"
+  },
+  { 
+    "id":3,
+    "name":"Monitor",
+    "price": "600"
+  }
+]
+}
