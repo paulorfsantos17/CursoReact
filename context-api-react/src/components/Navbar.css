@@ -3,6 +3,7 @@ nav{
   aling-items:center;
   justify-content: center;
   background-color: #010101;
+  width: 100%;
 }
 
 nav a {

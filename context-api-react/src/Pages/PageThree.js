@@ -1,8 +1,15 @@
-import React from 'react'
+import {useContext} from 'react'
+import  ChangeCounter  from '../components/ChangeCounter'
+import CounterContext from '../context/CounterContext'
 
 const PageThree = () => {
+  const {counter} = useContext(CounterContext)
   return (
-    <div>PageThree</div>
+    <div className='main'>
+    <h1>Three</h1>
+    <p>Valor do contador: {counter}</p>
+    <ChangeCounter />
+  </div>
   )
 }
 
