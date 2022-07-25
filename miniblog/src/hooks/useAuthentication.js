@@ -69,6 +69,7 @@ export const useAuthentication = () => {
 
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
+      setLoading(false)
     } catch (error) {
       let systemErrorMessage;
       console.log(error.message)
