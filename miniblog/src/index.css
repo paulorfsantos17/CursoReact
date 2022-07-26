@@ -83,7 +83,7 @@ input, textarea {
   background-color: transparent;
   border-radius:0;
   color: #000;
-  border: 1ps solid #000;
+  border: 1px solid #000;
   padding: 7px 30px;
 }
 
@@ -96,7 +96,7 @@ input, textarea {
   background-color: #000;
 }
 
-.btn.btn-danger:hover{
+.btn.btn-outline.btn-danger:hover{
   background-color: #DC3545;
 }
 

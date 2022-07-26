@@ -2,8 +2,8 @@ import "./App.css";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import { useAuthentication } from "./hooks/useAuthentication";
@@ -12,6 +12,8 @@ import { useState, useEffect } from "react";
 import { AuthProvider } from "./context/AuthContext";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import CreatePost from "./pages/CreatePost/CreatePost";
+import Search from "./pages/Search/Search";
+import Post from "./pages/Post/Post";
 
 function App() {
 
@@ -39,6 +41,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/post/:id" element={<Post />} />
               <Route path="/login" element={!user ? <Login /> : <Navigate to='/' /> } />
               <Route path="/register" element={!user ? <Register /> : <Navigate to='/' /> }/>
               <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to='/login' />} />

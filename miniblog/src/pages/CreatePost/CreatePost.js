@@ -10,33 +10,31 @@ const CreatePost = () => {
   const [image, setImage] = useState("");
   const [body, setBody] = useState("");
   const [tags, setTags] = useState([]);
-  const [formError, setFormError ] = useState();
-  const navigate = useNavigate()
+  const [formError, setFormError] = useState();
+  const navigate = useNavigate();
 
-  const {insertDocument, response} = useInsertDocument("posts")
-  
-  const {user} = useAuthValue()
+  const { insertDocument, response } = useInsertDocument("posts");
+
+  const { user } = useAuthValue();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    setFormError("")
-  
-    
-    
+
+    setFormError("");
+
     try {
-        new URL(image)
+      new URL(image);
     } catch (error) {
-      setFormError("Deu erro")
+      setFormError("Deu erro");
     }
 
-    const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase())
+    const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
 
-    if(!title || image || tags || !body) {
-      setFormError("Por Favor, preencha todos os campos")
+    if (!title || image || tags || !body) {
+      setFormError("Por Favor, preencha todos os campos");
     }
-    if(formError) {
-      return 
+    if (formError) {
+      return;
     }
 
     insertDocument({
@@ -45,10 +43,10 @@ const CreatePost = () => {
       body,
       tags: tagsArray,
       uid: user.uid,
-      createdBy: user.displayName
-    })
+      createdBy: user.displayName,
+    });
 
-    navigate('/')
+    navigate("/");
   };
 
   return (
@@ -100,7 +98,7 @@ const CreatePost = () => {
             onChange={(e) => setTags(e.target.value)}
           />
         </label>
-        
+
         {!response.loading && <button className="btn">Cadastrar</button>}
         {response.loading && (
           <button className="btn" disabled>

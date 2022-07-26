@@ -37,8 +37,6 @@ export const useInsertDocument = (docCollection) => {
 
     try {
       const newDocument = { ...document, createdAt: Timestamp.now() };
-     
-
       const insertedDocument = await addDoc(
         collection(db, docCollection),
         newDocument
@@ -46,7 +44,7 @@ export const useInsertDocument = (docCollection) => {
 
       checkCancelBeforeDispath({
         type: "INSERTED_DOC",
-        payload: insertDocument,
+        payload: insertedDocument,
       });
     } catch (error) {
       checkCancelBeforeDispath({
@@ -55,8 +53,6 @@ export const useInsertDocument = (docCollection) => {
       });
     }
   };
-
-
 
   return { insertDocument, response };
 };
