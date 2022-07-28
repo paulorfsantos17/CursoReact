@@ -2,15 +2,14 @@ import styles from './Dashboard.module.css'
 import {Link} from 'react-router-dom'
 import {useAuthValue} from '../../context/AuthContext'
 import {useFetchDocuments} from '../../hooks/useFetchDocuments'
+import { useDeleteDocument } from '../../hooks/useDeleteDocument'
 
 const Dashboard = () => {
   const {user} = useAuthValue()
   const uid = user.id
   const {documents: posts,loading} = useFetchDocuments('posts', uid)
+  const {deleteDocument} = useDeleteDocument("posts")
 
-  const deleteDocuments = (id) =>{
-
-  }
   
   if(loading) {
     return <p>Carregando...</p>
@@ -35,8 +34,8 @@ const Dashboard = () => {
             <p>{post.title}</p>
             <div>
               <Link to={`/post/${post.id}`} className='btn btn-outline'>Ver</Link>
-              <Link to={`post/edit/${post.id}`}  className='btn btn-outline'>Editar</Link>
-              <button onClick={()=> deleteDocuments(post.id)}  className='btn btn-outline btn-danger'>Exluir</button>
+              <Link to={`/post/edit/${post.id}`}  className='btn btn-outline'>Editar</Link>
+              <button onClick={()=> deleteDocument(post.id)}  className='btn btn-outline btn-danger'>Exluir</button>
             </div>
           </div>
       ))}

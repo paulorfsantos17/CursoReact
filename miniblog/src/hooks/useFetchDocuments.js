@@ -48,10 +48,14 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
             )
               
         } else {
+          
           q = await query(colletionRef, orderBy("createdAt", "desc"));
+
+          
         }
 
         await onSnapshot(q, (QuerySnapshot) => {
+          
           setDocuments(
             QuerySnapshot.docs.map((doc) => ({
               id: doc.id,
@@ -59,6 +63,7 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
             }))
           );
         });
+        console.log(documents)
         setLoading(false);
       } catch (error) {
         console.log(error);

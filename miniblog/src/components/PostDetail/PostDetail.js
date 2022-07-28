@@ -8,12 +8,14 @@ const PostDetail = ({ post }) => {
       <h2>{post.title}</h2>
       <p className={styles.createdBy}>{post.createdBy}</p>
       <div className={styles.tags}>
-        {post.tags.map((tag) => (
+      {post.tags.map((tag) => (
           <p key={tag}>
+            
             <span>#</span>
             {tag}
           </p>
         ))}
+      
       </div>
       <Link to={`/post/${post.id}`} className="btn btn-outline">
         Ler

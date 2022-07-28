@@ -7,7 +7,7 @@ const firebaseConfig = {
   projectId: "miniblog-edbcf",
   storageBucket: "miniblog-edbcf.appspot.com",
   messagingSenderId: "938507796623",
-  appId: "1:938507796623:web:43f7f70e9feabf5b5630fa",
+  appId: "1:938507796623:web:43f7f70e9feabf5b5630fa"
 };
 
 const app = initializeApp(firebaseConfig);
